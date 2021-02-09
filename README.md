@@ -1,0 +1,2 @@
+# CL_PythonBasics_workshop_simple_lotto
+CL_PythonBasics_workshop_simple_lotto
