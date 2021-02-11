@@ -1,4 +1,6 @@
-def ask_for_a_numbers_set():
+from random import shuffle
+
+def ask_for_a_numbers_set(min_number,max_number):
     """
     Function is asking user for 6 numbers from 1 to 49 and checkig if they are unique and in scope
     """
@@ -9,7 +11,7 @@ def ask_for_a_numbers_set():
             given_number = input(f"Please, input {input_question[i]} number: ")
             try:
                 given_number = int(given_number)
-                if given_number < 1 or given_number > 49:
+                if given_number < min_number or given_number > max_number:
                     print("Number out of scope (1-49)")
                 elif given_number in numbers_set:
                     print("Number already entered!")
@@ -21,5 +23,15 @@ def ask_for_a_numbers_set():
     result = sorted(numbers_set)
     return result
 
+def choose_winning_numbers(min_number,max_number):
+    numbers = [str(i) for i in range(min_number,max_number)]    
+    shuffle(numbers)
+    rand_num = [numbers[i] for i in range(6)]
+    result = sorted(rand_num)
+    return str(result)
 
-print(ask_for_a_numbers_set())
+
+min_number = 1
+max_number = 49
+print(ask_for_a_numbers_set(min_number,max_number))
+print(choose_winning_numbers(min_number, max_number))
