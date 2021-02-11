@@ -2,7 +2,7 @@ from random import shuffle
 
 def ask_for_a_numbers_set(min_number,max_number):
     """
-    Function is asking user for 6 numbers from 1 to 49 and checkig if they are unique and in scope
+    Function is asking user for 6 numbers from min_number to max_number and checkig if they are unique and in scope
     """
     input_question = ["1st", "2nd", "3rd", "4th", "5th", "6th"]
     numbers_set = []
@@ -24,6 +24,9 @@ def ask_for_a_numbers_set(min_number,max_number):
     return result
 
 def choose_winning_numbers(min_number,max_number):
+    """
+    Function is choosing 6 unique numbers in scope from min_number to max_number
+    """
     numbers = [i for i in range(min_number,max_number)]    
     shuffle(numbers)
     rand_num = [numbers[i] for i in range(6)]
@@ -31,6 +34,9 @@ def choose_winning_numbers(min_number,max_number):
     return result
 
 def compare_results(user_input, computer_input):
+    """
+    Function is comparing two list of numbers and return list of matches
+    """
     result = []
     for i in user_input:
         if i in computer_input:
@@ -38,14 +44,14 @@ def compare_results(user_input, computer_input):
         
     return result
 
-min_number = 1
-max_number = 49
-user_in = ask_for_a_numbers_set(min_number,max_number)
+MIN_NUMBER = 1
+MAX_NUMBER = 49
+user_in = ask_for_a_numbers_set(MIN_NUMBER,MAX_NUMBER)
 print(user_in)
-comp_in = choose_winning_numbers(min_number, max_number)
+comp_in = choose_winning_numbers(MIN_NUMBER, MAX_NUMBER)
 print(comp_in)
 result = compare_results(user_in, comp_in)
 if len(result) > 2:
-    print(f'Yo won! You guessed {len(result)} : {result}')
+    print(f'You won! You guessed {len(result)} : {result}')
 else:
-    print(f'Yo lost! You guessed only {len(result)} : {result}')
+    print(f'You lost! You guessed only {len(result)} : {result}')
