@@ -18,8 +18,8 @@ def ask_for_a_numbers_set():
                     break
             except ValueError: 
                 print("Input is not a number")
-
-    return numbers_set
+    result = sorted(numbers_set)
+    return result
 
 
 print(ask_for_a_numbers_set())
